@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [main, develop, pipeline-*]
+    branches: [main, master, develop, pipeline-*]
   pull_request:
-    branches: [main, develop, pipeline-*]
+    branches: [main, master, develop, pipeline-*]
 
 jobs:
   build:
@@ -18,6 +18,20 @@ jobs:
           java-version: "19"
           distribution: "temurin"
           cache: "maven" # Caches Maven dependencies to speed up subsequent builds
+      - name: Build, test and coverage check
+        run: mvn -B clean verify
+      - name: publish  JaCoCo report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/jacoco-report/
+          retention-days: 1
+      - name: publish  JUnit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports/
+          retention-days: 1
       - name: Build with Maven
         run: mvn install # Executes the Maven build command
       - name: Run tests
