@@ -1,0 +1,24 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [main, develop, pipeline-*]
+  pull_request:
+    branches: [main, develop, pipeline-*]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4 # Checks out your repository under $GITHUB_WORKSPACE
+      - name: Set up JDK 19
+        uses: actions/setup-java@v4 # Sets up a Java Development Kit (JDK)
+        with:
+          java-version: "19"
+          distribution: "temurin"
+          cache: "maven" # Caches Maven dependencies to speed up subsequent builds
+      - name: Build with Maven
+        run: mvn build # Executes the Maven build command
+      - name: Run tests
+        run: mvn test # Executes Maven tests
