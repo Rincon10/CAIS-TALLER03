@@ -19,6 +19,6 @@ jobs:
           distribution: "temurin"
           cache: "maven" # Caches Maven dependencies to speed up subsequent builds
       - name: Build with Maven
-        run: mvn build # Executes the Maven build command
+        run: mvn install # Executes the Maven build command
       - name: Run tests
         run: mvn test # Executes Maven tests
