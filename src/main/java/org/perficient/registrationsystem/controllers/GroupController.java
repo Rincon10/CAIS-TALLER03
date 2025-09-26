@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -35,6 +36,24 @@ public class GroupController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public GroupDto getGroupById(@PathVariable Integer id) throws Exception {
+        if(Objects.isNull(id)) throw new Exception("test");
+        if(Objects.nonNull(id) && id == 200) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 300) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 400) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 500) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 900) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 700) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 8200) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 2800) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 2050) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 2001) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 2020) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 2010) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 20110) throw new Exception("test2");
+        if(id<0 && id == -200) throw new Exception("test3");
+        if(id==0) throw new Exception("test4");
+        if((id>0 && id <100) && id == 80) throw new Exception("test5");
+        if(id>0 && id ==100) throw new Exception("test6");
         return groupService.findGroupById(id);
     }
 

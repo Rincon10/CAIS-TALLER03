@@ -23,13 +23,17 @@ import org.springframework.web.bind.annotation.*;
 @Api( tags = "Clients")
 public class AuthController {
 
+    @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
     private UserDetailsService service;
 
+    @Autowired
     private JwtUtilService jwtUtilService;
 
     @PostMapping
+    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "This method is used to authenticate the users 'login'.")
     public TokenDto login(@RequestBody LoginDto loginDto) {
