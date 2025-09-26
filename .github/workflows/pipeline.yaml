@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [main, develop, pipeline-*]
+    branches: [main,master, develop, pipeline-*]
   pull_request:
-    branches: [main, develop, pipeline-*]
+    branches: [main,master, develop, pipeline-*]
 
 jobs:
   build:
@@ -25,12 +25,15 @@ jobs:
         with:
           name: jacoco-report
           path: target/jacoco-report/
+          retention-days: 1
       - name: publish  JUnit report
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
           path: target/surefire-reports/
-      - name: Build with Maven
-        run: mvn install # Executes the Maven build command
+          retention-days: 1
       - name: Run tests
         run: mvn test # Executes Maven tests
+      - name: Build with Maven
+        run: mvn install # Executes the Maven build command
+
