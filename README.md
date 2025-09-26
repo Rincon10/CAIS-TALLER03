@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CAIS-TALLER03 - GitHub Actions Workshop 🛠️
 
 **Asignatura:** CAIS (Construcción de Aplicaciones Informáticas Seguras)  
@@ -121,3 +122,38 @@ Este es un proyecto educativo. Las contribuciones y mejoras son bienvenidas a tr
 ---
 
 **Nota:** Este repositorio es parte del material educativo de la asignatura CAIS y está diseñado con fines académicos para el aprendizaje de tecnologías de CI/CD y desarrollo seguro.
+=======
+# Proyecto-Sistema-Registro-Academico
+
+# Read Me First
+The following was discovered as part of building this project:
+
+* The original package name 'org.perficient.registration-system' is invalid and this project uses 'org.perficient.registrationsystem' instead.
+
+# Getting Started
+
+### Reference Documentation
+For further reference, please consider the following sections:
+
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.3/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.3/maven-plugin/reference/html/#build-image)
+* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.3/reference/htmlsingle/#web)
+
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+
+
+## Entity diagram
+
+<img src="./resources/images/01-entity-diagram.png" alt="entity-diagram" />
+
+## Class diagram
+
+
+<img src="./resources/images/02-class-diagram.png" alt="class-diagram" />
+>>>>>>> f875b93132f65d75bc0ede8c38bba0f63b3d07c9
