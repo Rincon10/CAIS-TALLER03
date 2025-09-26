@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CAIS-TALLER03 - GitHub Actions Workshop 🛠️
 
 **Asignatura:** CAIS (Construcción de Aplicaciones Informáticas Seguras)  
@@ -156,4 +155,3 @@ The following guides illustrate how to use some features concretely:
 
 
 <img src="./resources/images/02-class-diagram.png" alt="class-diagram" />
->>>>>>> f875b93132f65d75bc0ede8c38bba0f63b3d07c9
