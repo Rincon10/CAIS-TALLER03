@@ -139,6 +139,11 @@
             <artifactId>jaxb-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.2</version>
+        </dependency>
     </dependencies>
 
     <!-- build configuration -->
@@ -177,12 +182,21 @@
                         <configuration>
                             <rules>
                                 <rule>
-                                    <element>PACKAGE</element>
+                                    <element>CLASS</element>
+                                    <includes>
+                                        <include>org/perficient/**</include>
+                                    </includes>
+                                    <excludes>
+                                        <exclude>**/dto/**</exclude>
+                                        <exclude>**/config/**</exclude>
+                                        <exclude>**/*Application.class</exclude>
+                                        <exclude>**/*MapperImpl.class</exclude> <!-- MapStruct generada -->
+                                    </excludes>
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum>
+                                            <minimum>0.4</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
