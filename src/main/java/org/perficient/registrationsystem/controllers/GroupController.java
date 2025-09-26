@@ -38,9 +38,9 @@ public class GroupController {
     public GroupDto getGroupById(@PathVariable Integer id) throws Exception {
         if(Objects.isNull(id)) throw new Exception("test");
         if(Objects.nonNull(id) && id == 200) throw new Exception("test2");
-        if(id<0) throw new Exception("test3");
+        if(id<0 && id == -200) throw new Exception("test3");
         if(id==0) throw new Exception("test4");
-        if(id>0 && id <100) throw new Exception("test5");
+        if((id>0 && id <100) && id == 80) throw new Exception("test5");
         if(id>0 && id ==100) throw new Exception("test6");
         return groupService.findGroupById(id);
     }
