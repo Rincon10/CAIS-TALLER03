@@ -37,7 +37,7 @@ public class GroupController {
     @ResponseStatus(HttpStatus.OK)
     public GroupDto getGroupById(@PathVariable Integer id) throws Exception {
         if(Objects.isNull(id)) throw new Exception("test");
-        if(Objects.nonNull(id)) throw new Exception("test2");
+        if(Objects.nonNull(id) && id == 200) throw new Exception("test2");
         if(id<0) throw new Exception("test3");
         if(id==0) throw new Exception("test4");
         if(id>0 && id <100) throw new Exception("test5");
