@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [main, develop, pipeline-*]
+    branches: [main, master, develop, pipeline-*]
   pull_request:
-    branches: [main, develop, pipeline-*]
+    branches: [main, master, develop, pipeline-*]
 
 jobs:
   build:
@@ -18,7 +18,22 @@ jobs:
           java-version: "19"
           distribution: "temurin"
           cache: "maven" # Caches Maven dependencies to speed up subsequent builds
-      - name: Build with Maven
-        run: mvn install # Executes the Maven build command
-      - name: Run tests
-        run: mvn test # Executes Maven tests
+      - name: Build, test and coverage check
+        run: mvn -B clean verify
+      - name: publish  JaCoCo report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/jacoco-report/
+          retention-days: 1
+      - name: publish  JUnit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports/
+          retention-days: 1
+      - name: SonarQube Analysis with Maven
+        run: mvn sonar:sonar -Dsonar.projectKey=Rincon10_CAIS-TALLER03 -Dsonar.organization=rincon10 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONNAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONNAR_TOKEN }}
